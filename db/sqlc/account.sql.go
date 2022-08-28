@@ -75,7 +75,7 @@ func (q *Queries) ListAccounts(ctx context.Context, offset int32) ([]Account, er
 		return nil, err
 	}
 	defer rows.Close()
-	var items []Account
+	items := []Account{}
 	for rows.Next() {
 		var i Account
 		if err := rows.Scan(
