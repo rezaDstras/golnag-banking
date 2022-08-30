@@ -13,6 +13,7 @@ type Server struct {
 	router *gin.Engine
 }
 
+
 //NewServer creates a new Http server and setup Routing
 func NewServer(store *db.Store) *Server  {
 	server := &Server{
@@ -31,6 +32,7 @@ func NewServer(store *db.Store) *Server  {
 	router.GET("/account/:id",server.getAccount)
 	router.GET("/accounts",server.getAccounts)
 	router.POST("/transfer",server.createTransfer)
+	router.POST("/user",server.createUser)
 
 	//add routes to routers
 	server.router = router
